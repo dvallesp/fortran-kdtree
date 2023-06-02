@@ -29,12 +29,12 @@ contains
   recursive subroutine kdtree_build_1(this, x, start_node_)
 
     class(kdtree_type), intent(inout) :: this
-    real(8), intent(in) :: x(:,:)
+    real(4), intent(in) :: x(:,:)
     type(node_type), intent(inout), target, optional :: start_node_
 
     integer num_point, num_dim, part_dim, i, d
-    real(8) xvar, max_xvar
-    real(8) xmed ! Median coordinate along one dimension
+    real(4) xvar, max_xvar
+    real(4) xmed ! Median coordinate along one dimension
     type(node_type), pointer :: node
 
     num_dim   = size(x, 1)
@@ -115,10 +115,10 @@ contains
   subroutine kdtree_build_2(this, x, y)
 
     class(kdtree_type), intent(inout) :: this
-    real(8), intent(in) :: x(:)
-    real(8), intent(in) :: y(:)
+    real(4), intent(in) :: x(:)
+    real(4), intent(in) :: y(:)
 
-    real(8), allocatable :: xy(:,:)
+    real(4), allocatable :: xy(:,:)
 
     if (size(x) /= size(y)) then
       stop '[Error]: kdtree_build: Dimensions of x and y is not the same!'

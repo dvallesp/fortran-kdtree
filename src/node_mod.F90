@@ -9,11 +9,11 @@ module node_mod
   type node_type
     integer :: id = 1
     integer :: part_dim = 0
-    real(8), allocatable :: x(:)
+    real(4), allocatable :: x(:)
     integer global_idx
     integer :: num_point = 0
     ! The following two arrays are used at build time, after that they will be descarded.
-    real(8), allocatable :: x_array(:,:)
+    real(4), allocatable :: x_array(:,:)
     integer, allocatable :: global_idx_array(:)
     type(node_type), pointer :: parent => null()
     type(node_type), pointer :: left   => null()
@@ -73,7 +73,7 @@ contains
   subroutine node_add_point(this, x, global_idx)
 
     class(node_type), intent(inout) :: this
-    real(8), intent(in) :: x(:)
+    real(4), intent(in) :: x(:)
     integer, intent(in) :: global_idx
 
     this%num_point = this%num_point + 1
@@ -90,7 +90,7 @@ contains
 
     class(node_type), intent(inout) :: this
 
-    real(8), allocatable :: rtmp(:,:)
+    real(4), allocatable :: rtmp(:,:)
     integer, allocatable :: itmp(:)
     integer m, n, i, j
 
