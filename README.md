@@ -64,6 +64,8 @@ c   SEARCH IN THE TREE
   ! Now ngb_idx contains the indices of the num_neigh first neighbours.
 ```
 
+Note that the calls to `tree%search()` can be in principle OMP parallelised. In my tests, there is an almost-linear performance improvement from 1 to 4 threads, but not much beyond it.
+
 # Contributors
 
 - Li Dong ([original repository](https://github.com/dongli/fortran-kdtree))
